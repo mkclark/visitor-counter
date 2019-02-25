@@ -10,7 +10,7 @@ def create_app():
 
     # Load config
     app.config.from_pyfile('settings.py')
-    print(DB_URI)
+    
 
     # initialize db
     db.init_app(app)
