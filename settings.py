@@ -1,9 +1,11 @@
 import os
 
 SECRET_KEY = os.getenv('SECRET_KEY')
-DB_USERNAME='counter_app'
-DB_PASSWORD='mypassword'
-DB_HOST='localhost'
-DATABASE_NAME='counter'
-DB_URI = 'mysql+pymysql://%s:%s@%s:3306/%s' % (DB_USERNAME, DB_PASSWORD, DB_HOST, DATABASE_NAME)
+DB_USERNAME=os.environ['DB_USERNAME']
+DB_PASSWORD=os.environ['DB_PASSWORD']
+DB_HOST=os.environ['DB_HOST']
+DATABASE_NAME=os.environ['DATABASE_NAME']
+DB_URI = 'mysql+pymysql://%s:%s@%s:3306/%s?charset=UTF8MB4' % (DB_USERNAME, DB_PASSWORD, DB_HOST, DATABASE_NAME)
 SQLALCHEMY_DATABASE_URI = DB_URI
+SQL_ALCHEMY_TRACK_MODIFICATIONS=True # setting for running tests
+MYSQL_ROOT_PASSWORD=os.environ['MYSQL_ROOT_PASSWORD']
